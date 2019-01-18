@@ -1,0 +1,238 @@
+{% extends "templete.html" %}
+
+
+        <!--内容-->
+    {% block content %}
+
+        {# 港口信息#}
+        <section class="content-header">
+            <h1>港口管理
+{#                &nbsp;&nbsp;&nbsp;&nbsp;#}
+{#                <a id=bn  class="cke_button_label">重新编号</a>  <p2>(请确保您已经更改了航程 否则将会出现相同的航程)</p2>#}
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i>港口管理</a></li>
+                <li class="active">港口列表</li>
+            </ol>
+        </section>
+        <section class="content" id="showcontent">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">港口列表</h3>
+                             &nbsp;&nbsp;&nbsp;&nbsp;<a class="label label-success" href="/pport_add/{{ hangci }}">添加港口</a>
+                            <div class="box-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="table_search" class="form-control pull-right"
+                                           placeholder="请输入关键字...">
+
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <tbody>
+                                <tr>
+                                    <th>编号</th>
+                                    <th>对应航次</th>
+                                    <th>港口名</th>
+                                    <th>船舶状态</th>
+                                    <th>空闲天数</th>
+                                    <th>工作天数</th>
+                                    <th>ETA</th>
+                                    <th>ETD</th>
+                                    <th>港口费用</th>
+                                    <th>航程距离</th>
+                                    <th>在航天数</th>
+                                </tr>
+                                 {% for p_port in pportlist %}
+                                <tr>
+                                    <td class="xh">{{p_port.Pport_order }}</td>
+                                    <td >{{p_port.Pship_number }}</td>
+                                    <td>{{p_port.Pport_name}}</td>
+                                    <td>{{p_port.Pport_shipstate }}</td>
+                                    <td>{{p_port.Pport_leisureday }}</td>
+                                    <td>{{p_port.Pport_workday }}</td>
+                                    <td>{{p_port.Pport_eta|date:"Y-m-d H:i:s" }}</td>
+                                    <td>{{p_port.Pport_etd|date:"Y-m-d H:i:s" }}</td>
+                                    <td>{{p_port.Pport_cost }}</td>
+                                    <td>{{p_port.Pport_range }}</td>
+                                    <td>{{p_port.Pport_shipday }}</td>
+                                    <td>
+                                        <a class="label label-success" href="/pport_edit/{{ p_port.id }}">编辑</a>
+                                        &nbsp;
+                                        <a class="label label-danger" href="/pport_del/{{ p_port.id }}">删除</a>
+                                            &nbsp;
+                                        <a class="up label label-warning">上移</a>
+                                        &nbsp;
+                                        <a class="down label label-warning">下移</a>
+                                                                                &nbsp;
+                                        <a class="down label label-success" href="/pport_add/{{ hangci }}">添加港口</a>
+
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box-footer clearfix">
+                            <ul class="pagination pagination-sm no-margin pull-right">
+                                <li><a href="#">首页</a></li>
+                                <li><a href="#">上一页</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">下一页</a></li>
+                                <li><a href="#">尾页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        {# 航程信息#}
+        <section class="content-header">
+            <h1>航程信息
+                <a class="bn"> 更新航程信息</a>
+            </h1>
+
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i>航程信息</a></li>
+                <li class="active">航程信息</li>
+            </ol>
+        </section>
+        <section class="content" id="showcontent">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">航程信息</h3>
+                            <div class="box-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="table_search" class="form-control pull-right"
+                                           placeholder="请输入关键字...">
+
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <tbody>
+                                <tr>
+                                    <th>编号</th>
+                                   <th>对应航次</th>
+                                    <th>总航行距离</th>
+                                    <th>总航行时间</th>
+                                    <th>总在港时间</th>
+                                    <th>总在航时间</th>
+                                    <th>开始时间</th>
+                                    <th>结束时间</th>
+                                </tr>
+                                 {% for pship_port in pship_portlist %}
+                                <tr>
+                                    <td>{{pship_port.id }}</td>
+                                    <td>{{pship_port.Pship_number }}</td>
+                                    <td>{{pship_port.Sum_range }}</td>
+                                    <td>{{pship_port.Sum_day }}</td>
+                                    <td>{{pship_port.Pport_lei_worday }}</td>
+                                    <td>{{pship_port.Pport_range }}</td>
+                                    <td>{{pship_port.Start_day }}</td>
+                                    <td>{{pship_port.End_day }}</td>
+                                    <td>
+                                        <a class="label label-danger" href="/hangcheng_del/{{ pship_port.id }}">删除</a>
+                                        &nbsp;
+                                        <a class="label label-success" href="/cost_budget/{{ hangci }}">燃油信息</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box-footer clearfix">
+                            <ul class="pagination pagination-sm no-margin pull-right">
+                                <li><a href="#">首页</a></li>
+                                <li><a href="#">上一页</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">下一页</a></li>
+                                <li><a href="#">尾页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--内容-->
+    </div>
+    {% endblock %}
+
+{% block js %}
+ <script language="JavaScript" type="text/javascript">
+
+
+        $('.bn').click(function () {
+            var r = [];
+            $('.xh').each(function (i, t) {
+                r.push($(this).html());
+            });
+            var surl = "/pport_order/{{ hangci }}/";
+            console.log(surl);
+            var tem=JSON.stringify( {"xh": r});
+            console.log(tem);
+            $.ajax({
+                url: surl,
+                data:tem,
+                contentType: 'application/json',
+                type: "POST",
+                traditional: true,    // 需要传递列表、字典时加上这句
+                success: function (result) {
+                    console.log("sucess");
+                   window.location.reload();
+                },
+                fail: function (result) {
+                    console.log(123)
+                }
+            });
+        });
+
+            var $up = $(".up");
+            $up.click(function () {
+                var $tr = $(this).parents("tr");
+                if ($tr.index() != 1) {
+                    $tr.fadeOut().fadeIn();
+                    $tr.prev().before($tr);
+                }
+            });
+            var $down = $(".down");
+            var len = $down.length;
+            $down.click(function () {
+                var $tr = $(this).parents("tr");
+                if ($tr.index() != len) {
+                    $tr.fadeOut().fadeIn();
+                    $tr.next().after($tr);
+                }
+            });
+            var $top = $(".top");
+            $top.click(function () {
+                var $tr = $(this).parents("tr");
+                $tr.fadeOut().fadeIn();
+                $(".table").prepend($tr);
+                $tr.css("color", "#f60");
+            });
+
+
+    </script>
+
+{% endblock %}

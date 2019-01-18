@@ -1,0 +1,21 @@
+{% extends "templete.html" %}
+
+
+{% block content %}
+    <div class="container" >
+        <h1>航程信息</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {% for  hangcheng in  hangchenglist %}
+                <div class="form-group col-md-6">
+                    <label class="col-md-3 control-label">{{ hangcheng.label }}</label>
+                   <div class="col-md-9" style="position: relative;">{{ hangcheng }}</div>
+                </div>
+            {% endfor %}
+
+            <div class="col-md-2 col-md-offset-10">
+                <input type="submit" value="提交" class="btn-primary">
+            </div>
+        </form>
+    </div>
+{% endblock %}

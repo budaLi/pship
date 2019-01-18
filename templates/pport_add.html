@@ -1,0 +1,46 @@
+{% extends "templete.html" %}
+
+
+{% block content %}
+    <div class="container" >
+        <h1>港口信息</h1>
+        <form method="POST">
+            {% csrf_token %}
+{#            {% for  pport in  pportlist %}#}
+{#                <div class="form-group col-md-6">#}
+{#                {% if pport.label == "ETA"%}#}
+{#                    <label for="ETA">ETA：</label><input id="ETA"  type="datetime-local"/>#}
+{##}
+{#                {% elif pport.label == "ETD"%}#}
+{#                    <label for="ETD">ETD：</label><input id="ETD"  type="datetime-local"/>#}
+{#                    {% else %}#}
+{#                     <label class="col-md-3 control-label">{{ pport.label }}</label>#}
+{#                   <div class="col-md-9" style="position: relative;">{{ pport }}</div>#}
+{##}
+{#               {% endif %}#}
+{##}
+{#                </div>#}
+{#            {% endfor %}#}
+            <div>
+                 &nbsp; &nbsp; &nbsp; &nbsp;<label>航次</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <div style="display: inline">{{ hangci }}</div>
+            </div>
+
+
+            {% for pport in pportlist %}
+                 <div class="form-group col-md-6">
+                     <label class="col-md-3 control-label">{{ pport.label }}</label>
+                    <div class="col-md-9" style="position: relative;">{{ pport }}</div>
+
+                </div>
+            {% endfor %}
+            <p style="color: red">请注意ETA,ETD为日期格式,输入正确无法录入 例如 <2019-01-12 20:56:42></p>
+
+            <div class="col-md-2 col-md-offset-10">
+                <input  type="submit" value="提交" class="btn-primary">
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+

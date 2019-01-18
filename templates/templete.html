@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>xxx系统</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="shortcut icon" href="/static/base/images/logo.png">
+    <link rel="stylesheet" href="/static/admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/fonts/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/static/admin/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/static/admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/admin/plugins/datepicker/datepicker3.css">
+    <style>
+        *{
+            font-family:"Microsoft YaHei";
+        }
+        .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+            vertical-align:middle;
+            text-align:center;
+        }
+
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header">
+        <a href="index.html" class="logo">
+            <span class="logo-mini"><img src="/static/base/images/logo.png"
+                                         style="height:40px;width:40px;">xx系统</span>
+            <span class="logo-lg"><img src="/static/base/images/logo.png"
+                                       style="height:40px;width:40px;">xxx管理系统</span>
+        </a>
+        <nav class="navbar navbar-static-top">
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">下拉菜单</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="/static/admin/dist/img/user2-160x160.jpg"
+                                 class="user-image" alt="User Image">
+                            <span class="hidden-xs">xxx</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="user-header">
+                                <img src="/static/admin/dist/img/user2-160x160.jpg"
+                                     class="img-circle" alt="User Image">
+                                <p>
+                                    xxx
+                                    <small>2017-06-01</small>
+                                </p>
+                            </li>
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="pwd.html" class="btn btn-default btn-flat">修改密码</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="login.html" class="btn btn-default btn-flat">退出系统</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+        <aside class="main-sidebar">
+        <section class="sidebar">
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="/static/admin/dist/img/user2-160x160.jpg" class="img-circle"
+                         alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>用户xxx</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+                </div>
+            </div>
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="搜索...">
+                    <span class="input-group-btn">
+                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
+                                class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+            <ul class="sidebar-menu">
+                <li class="header">管理菜单</li>
+{#                <li class="treeview">#}
+{#                    <a href="#">#}
+{#                        <i class="fa fa-home" aria-hidden="true"></i>#}
+{#                        <span>首页</span>#}
+{#                        <span class="label label-primary pull-right">1</span>#}
+{#                    </a>#}
+{#                    <ul class="treeview-menu">#}
+{#                        <li>#}
+{#                            <a href="index.html">#}
+{#                                <i class="fa fa-circle-o"></i> 控制面板#}
+{#                            </a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </li>#}
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-tags" aria-hidden="true"></i>
+                        <span>计算航程信息</span>
+                        <span class="label label-primary pull-right">1</span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="/pship_list/">
+                                <i class="fa fa-circle-o"></i> 航次信息
+                            </a>
+                        </li>
+
+    {#                        <li>#}
+    {#                            <a href="/pcargo_add/{{  }}">#}
+{#                                <i class="fa fa-circle-o"></i> 添加货物#}
+{#                            </a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="/fuelrent_add/">#}
+{#                                <i class="fa fa-circle-o"></i> 添加燃油#}
+{#                            </a>#}
+{#                        </li>#}
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-file-video-o" aria-hidden="true"></i>
+                        <span>航次详细信息</span>
+                        <span class="label label-primary pull-right">1  </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="/all_info/">
+                                <i class="fa fa-circle-o"></i> 详细信息
+                            </a>
+
+
+                        </li>
+
+{##}
+{#                    </ul>#}
+{#                </li>#}
+{#                <li class="treeview">#}
+{#                    <a href="#">#}
+{#                        <i class="fa fa-film" aria-hidden="true"></i>#}
+{#                        <span>总预算</span>#}
+{#                        <span class="label label-primary pull-right">2</span>#}
+{#                    </a>#}
+{#                    <ul class="treeview-menu">#}
+{#                        <li>#}
+{#                            <a href="/pcargo_add/{{  }}">#}
+{#                                <i class="fa fa-circle-o"></i> 添加货物#}
+{#                            </a>#}
+{#                        </li>#}
+{#                        <li>#}
+{#                            <a href="/budget_result/">#}
+{#                                <i class="fa fa-circle-o"></i> 预算详情#}
+{#                            </a>#}
+{#                        </li>#}
+{#                    </ul>#}
+{#                </li>#}
+            </ul>
+        </section>
+    </aside>
+
+
+    <div class="content-wrapper">
+        <!--内容-->
+        {% block content %}
+        <section class="content-header">
+            <h1>微电影管理系统</h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+                <li class="active">控制面板</li>
+            </ol>
+        </section>
+        <section class="content" id="showcontent">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">内存使用率</h3>
+                        </div>
+                        <div class="box-body" id="meminfo" style="height:600px;"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">系统设置</h3>
+                        </div>
+                        <form role="form">
+                            <div class="box-body" style="height:600px;">
+                                <div class="form-group">
+                                    <label for="input_speed">限制速率大小</label>
+                                    <input type="text" class="form-control" id="input_speed" placeholder="请输入限制速率！"
+                                           value="512">
+                                </div>
+                                <div class="form-group">
+                                    <label for="input_mem">限制内存大小</label>
+                                    <input type="text" class="form-control" id="input_mem" placeholder="请输入限制内存！"
+                                           value="10m">
+                                </div>
+                                <div class="form-group">
+                                    <label for="input_num">限制客户端数量</label>
+                                    <input type="text" class="form-control" id="input_num" placeholder="请输入限制客户端数量！"
+                                           value="4">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">保存并重启服务</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--内容-->
+         {% endblock %}
+    </div>
+
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>版本</b> 1.0
+        </div>
+        <strong>版权 &copy; 2017-2018 归<a href="">xxx</a>.</strong> 所有
+    </footer>
+    <div class="control-sidebar-bg"></div>
+</div>
+<script src="/static/admin/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<script src="/static/admin/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/admin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="/static/admin/plugins/fastclick/fastclick.js"></script>
+<script src="/static/admin/dist/js/app.min.js"></script>
+<script src="/static/admin/dist/js/demo.js"></script>
+<script src="//cdn.bootcss.com/holder/2.9.4/holder.min.js"></script>
+<script src="/static/admin/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="/static/admin/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js" charset="UTF-8"></script>
+<script src="/static/js/echarts.min.js"></script>
+
+{% block js %}
+{#<script>#}
+{#    var myChart = echarts.init(document.getElementById('meminfo'));#}
+{#    option = {#}
+{#		backgroundColor: "white",#}
+{#		tooltip: {#}
+{#			formatter: "{a} <br/>{b} : {c}%"#}
+{#		},#}
+{#		toolbox: {#}
+{#			feature: {#}
+{#				restore: {},#}
+{#				saveAsImage: {}#}
+{#			}#}
+{#		},#}
+{#		series: [{#}
+{#			name: '内存使用率',#}
+{#			type: 'gauge',#}
+{#			detail: {#}
+{#				formatter: '{value}%'#}
+{#			},#}
+{#			data: [{#}
+{#				value: 50,#}
+{#				name: '内存使用率'#}
+{#			}]#}
+{#		}]#}
+{#	};#}
+{#    setInterval(function () {#}
+{#        option.series[0].data[0].value = (Math.random() * 100).toFixed(2) - 0;#}
+{#        myChart.setOption(option, true);#}
+{#    },2000);#}
+{##}
+{#</script>#}
+{% endblock %}
+
+</body>
+</html>

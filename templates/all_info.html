@@ -1,0 +1,103 @@
+{% extends "templete.html" %}
+
+
+    <div class="content-wrapper">
+        <!--内容-->
+    {% block content %}
+
+        {#详细信息#}
+        <section class="content-header">
+            <h1>详细信息</h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i>详细信息</a></li>
+                <li class="active">详细信息</li>
+            </ol>
+        </section>
+        <section class="content" id="showcontent"   >
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">详细信息</h3>
+                            <div class="box-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="table_search" class="form-control pull-right"
+                                           placeholder="请输入关键字...">
+
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <tbody>
+                                <tr>
+                                    <th>航次</th>
+                                    <th>经过港口</th>
+                                    <th>总航行距离</th>
+                                    <th>总航行时间</th>
+                                    <th>总在港时间</th>
+                                    <th>总在航时间</th>
+{#                                    <th>Fo在航消耗量</th>#}
+{#                                    <th>Fo在港消耗量</th>#}
+{#                                    <th>Do在航消耗量</th>#}
+{#                                    <th>Do在港消耗量</th>#}
+                                    <th>燃油费</th>
+                                    <th>总港口费用</th>
+                                    <th>总船舶租金</th>
+                                    <th>总成本</th>
+                                    <th>每日成本</th>
+                                    <th>货物信息</th>
+                                    <th>总运费收入</th>
+                                    <th>利润/亏损</th>
+                                    <th>相当租金水平</th>
+                                    <th>回扣佣金</th>
+                                    <th>经纪人佣金</th>
+                                </tr>
+                                 {% for info in infolist %}
+                                <tr>
+                                    {% for one in info %}
+                                         <td>{{one }}</td>
+                                        {% endfor %}
+
+{#                                    <td>#}
+{#                                        <a class="label label-default" href="/pship_edit/{{ p_ship.id }}">编辑</a>#}
+{#                                        &nbsp;#}
+{#                                        <a class="label label-danger" href="/pship_del/{{ p_ship.id }}">删除</a>#}
+{#                                         &nbsp;#}
+{#                                        <a class="label label-danger" href="/pship_add/">添加航次</a>#}
+{#                                         &nbsp;#}
+{#                                        <a class="label label-warning" href="/hangcheng/{{ p_ship.id }}">港口信息</a>#}
+{#                                        &nbsp;#}
+{#                                        <a class="label label-success" href="/cost_budget/{{ p_ship.id }}">燃油信息</a>#}
+{#                                        &nbsp;#}
+{#                                        <a class="label label-success" href="/budget_result/{{ p_ship.id }}">货物信息</a>#}
+{#                                    </td>#}
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box-footer clearfix">
+                            <ul class="pagination pagination-sm no-margin pull-right">
+                                <li><a href="#">首页</a></li>
+                                <li><a href="#">上一页</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">下一页</a></li>
+                                <li><a href="#">尾页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--内容-->
+    </div>
+    {% endblock %}

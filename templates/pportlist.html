@@ -1,0 +1,87 @@
+{% extends "templete.html" %}
+
+
+    <div class="content-wrapper">
+        <!--内容-->
+    {% block content %}
+        <section class="content-header">
+            <h1>港口管理</h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i>港口管理</a></li>
+                <li class="active">港口列表</li>
+            </ol>
+        </section>
+        <section class="content" id="showcontent">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header">
+                            <h3 class="box-title">港口列表</h3>
+                            <div class="box-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="table_search" class="form-control pull-right"
+                                           placeholder="请输入关键字...">
+
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-body table-responsive no-padding">
+                            <table class="table table-hover">
+                                <tbody>
+                                <tr>
+                                    <th>编号</th>
+                                    <th>港口名</th>
+                                    <th>船舶状态</th>
+                                    <th>空闲天数</th>
+                                    <th>工作天数</th>
+                                    <th>ETA</th>
+                                    <th>ETD</th>
+                                    <th>港口费用</th>
+                                    <th>航程距离</th>
+                                    <th>在航天数</th>
+                                </tr>
+                                 {% for p_port in pportlist %}
+                                <tr>
+                                    <td>{{p_port.id }}</td>
+                                    <td>{{p_port.Pport_name}}</td>
+                                    <td>{{p_port.Pport_shipstate }}</td>
+                                    <td>{{p_port.Pport_leisureday }}</td>
+                                    <td>{{p_port.Pport_workday }}</td>
+                                    <td>{{p_port.Pport_eta }}</td>
+                                    <td>{{p_port.Pport_etd }}</td>
+                                    <td>{{p_port.Pport_cost }}</td>
+                                    <td>{{p_port.Pport_range }}</td>
+                                    <td>{{p_port.Pport_shipday }}</td>
+                                    <td>
+                                        <a class="label label-success">编辑</a>
+                                        &nbsp;
+                                        <a class="label label-danger">删除</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box-footer clearfix">
+                            <ul class="pagination pagination-sm no-margin pull-right">
+                                <li><a href="#">首页</a></li>
+                                <li><a href="#">上一页</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">下一页</a></li>
+                                <li><a href="#">尾页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--内容-->
+    </div>
+
+    {% endblock %}

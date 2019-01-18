@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="/static/js/jquery.min.js"></script>
+
+<table>
+<tr><td class='xh'>1</td><td class='up'>上移</td><td class='down'>下移</td></tr>
+<tr><td class='xh'>2</td><td class='up'>上移</td><td class='down'>下移</td></tr>
+<tr><td class='xh'>3</td><td class='up'>上移</td><td class='down'>下移</td></tr>
+<tr><td class='xh'>4</td><td class='up'>上移</td><td class='down'>下移</td></tr>
+<tr><td class='xh'>5</td><td class='up'>上移</td><td class='down'>下移</td></tr>
+<tr><td class='xh'>6</td><td class='up'>上移</td><td class='down'>下移</td></tr>
+</table>
+<input type=button value=确认 id=bn>
+<script language="JavaScript" type="text/javascript">
+$(function(){
+  $('#bn').click(function() {
+    var r = [];
+    $('.xh').each(function(i, t) {
+      r.push($(this).html());
+    });
+      alert(1);
+    alert(r);
+    //将顺序返回给后端
+    $.post("/pport_order/", {order:r});
+  });
+
+  var $up = $(".up");
+  $up.click(function() {
+    var $tr = $(this).parents("tr");
+    if ($tr.index() != 0) {
+      $tr.fadeOut().fadeIn();
+      $tr.prev().before($tr);
+    }
+  });
+  var $down = $(".down");
+  var len = $down.length;
+  $down.click(function() {
+    var $tr = $(this).parents("tr");
+    if ($tr.index() != len - 1) {
+      $tr.fadeOut().fadeIn();
+      $tr.next().after($tr);
+    }
+  });
+  var $top = $(".top");
+  $top.click(function(){
+    var $tr = $(this).parents("tr");
+    $tr.fadeOut().fadeIn();
+    $(".table").prepend($tr);
+    $tr.css("color","#f60");
+  });
+});
+</script>
+</body>
+</html>
