@@ -94,13 +94,13 @@ class Cost_result(models.Model):
 class Pcargo(models.Model):
     Pship_number= models.ForeignKey("Pship",on_delete=models.CASCADE,verbose_name='航次')
     Pcargo_name=models.CharField(_('货物名'),max_length=30,)
-    Pcargo_num=models.CharField(_('货物量'),max_length=20)
-    Pcargo_carriage=models.CharField(_('运费'),max_length=20)
-    Huikou_commission_p=models.CharField(_('回扣佣金'),max_length=20)
-    Agent_commission_p=models.CharField(_('代理人佣金 '),max_length=20)
-    Carriage_tax=models.CharField(_('运费税'),max_length=20)
-    Item_tax=models.CharField(_('其他扣除项'),max_length=20)
-    Carriage_revenue=models.CharField(_('运费收益'),max_length=20)
+    Pcargo_num=models.IntegerField(_('货物量'))
+    Pcargo_carriage=models.IntegerField(_('运费'),max_length=20)
+    Huikou_commission_p=models.IntegerField(_('回扣佣金'),max_length=20)
+    Agent_commission_p=models.IntegerField(_('代理人佣金 '),max_length=20)
+    Carriage_tax=models.IntegerField(_('运费税'),max_length=20)
+    Item_tax=models.IntegerField(_('其他扣除项'),max_length=20)
+    Carriage_revenue=models.IntegerField(_('运费收益'),max_length=20)
 
     def __str__(self):
         return self.Pcargo_name
